@@ -1,6 +1,6 @@
 use pyo3::prelude::*;
 
-/// Formats the sum of two numbers as string.
+/// Read QR code data from image file.
 #[pyfunction]
 #[pyo3(name = "read_qr")]
 fn read_qr_function(filename: &str) -> PyResult<String> {
@@ -23,7 +23,6 @@ fn read_qr_function(filename: &str) -> PyResult<String> {
     Ok(content)
 }
 
-/// A Python module implemented in Rust.
 #[pymodule]
 fn read_qr(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(read_qr_function, m)?)?;

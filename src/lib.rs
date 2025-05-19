@@ -1,0 +1,25 @@
+use pyo3::prelude::*;
+
+/// Formats the sum of two numbers as string.
+#[pyfunction]
+#[pyo3(name = "read_qr")]
+fn read_qr_function(filename: &str) -> PyResult<String> {
+    let img = image::open(filename)
+        .map_err(|e| {
+            PyErr::new::<pyo3::exceptions::PyValueError, _>(format!("Failed to open image: {}", e))
+        })?
+        .to_luma8();
+    let mut img = rqrr::PreparedImage::prepare(img);
+    let grids = img.detect_grids();
+    let (_meta, content) = grids[0].decode().map_err(|e| {
+        PyErr::new::<pyo3::exceptions::PyValueError, _>(format!("Failed to decode QR code: {}", e))
+    })?;
+    Ok(content)
+}
+
+/// A Python module implemented in Rust.
+#[pymodule]
+fn read_qr(m: &Bound<'_, PyModule>) -> PyResult<()> {
+    m.add_function(wrap_pyfunction!(read_qr_function, m)?)?;
+    Ok(())
+}

@@ -1,0 +1,14 @@
+[package]
+name = "read-qr"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "read_qr"
+crate-type = ["cdylib"]
+
+[dependencies]
+image = "0.25.6"
+pyo3 = "0.24.0"
+rqrr = "0.9.3"

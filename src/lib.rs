@@ -2,7 +2,7 @@ use pyo3::prelude::*;
 
 /// Read QR code data from image file.
 #[pyfunction]
-#[pyo3(name = "read_qr")]
+#[pyo3(name = "read_qrcode")]
 fn read_qr_function(filename: &str) -> PyResult<String> {
     let img = image::open(filename)
         .map_err(|e| {
@@ -24,7 +24,7 @@ fn read_qr_function(filename: &str) -> PyResult<String> {
 }
 
 #[pymodule]
-fn read_qr(m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn read_qrcode(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(read_qr_function, m)?)?;
     Ok(())
 }

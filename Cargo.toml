@@ -1,11 +1,11 @@
 [package]
-name = "read-qr"
+name = "read-qrcode"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [lib]
-name = "read_qr"
+name = "read_qrcode"
 crate-type = ["cdylib"]
 
 [dependencies]

@@ -3,7 +3,7 @@ requires = ["maturin>=1.8,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "read-qr"
+name = "read-qrcode"
 requires-python = ">=3.12"
 classifiers = [
     "Programming Language :: Rust",

@@ -47,7 +47,7 @@ jobs:
           set -e
           python3 -m venv .venv
           source .venv/bin/activate
-          pip install read-qr --find-links dist --force-reinstall
+          pip install read-qrcode --find-links dist --force-reinstall
           pip install pytest
           pytest
       - name: Test wheels
@@ -63,7 +63,7 @@ jobs:
             pip3 install -U pip pytest
           run: |
             set -e
-            pip3 install read-qr --find-links dist --force-reinstall
+            pip3 install read-qrcode --find-links dist --force-reinstall
             pytest
 
   musllinux:
@@ -99,7 +99,7 @@ jobs:
             apk add py3-pip py3-virtualenv
             python3 -m virtualenv .venv
             source .venv/bin/activate
-            pip install read-qr --no-index --find-links dist --force-reinstall
+            pip install read-qrcode --no-index --find-links dist --force-reinstall
             pip install pytest
             pytest
       - name: Test wheels
@@ -116,7 +116,7 @@ jobs:
             python3 -m virtualenv .venv
             source .venv/bin/activate
             pip install pytest
-            pip install read-qr --find-links dist --force-reinstall
+            pip install read-qrcode --find-links dist --force-reinstall
             pytest
 
   windows:
@@ -147,7 +147,7 @@ jobs:
           set -e
           python3 -m venv .venv
           source .venv/Scripts/activate
-          pip install read-qr --find-links dist --force-reinstall
+          pip install read-qrcode --find-links dist --force-reinstall
           pip install pytest
           pytest
 
@@ -181,7 +181,7 @@ jobs:
           set -e
           python3 -m venv .venv
           source .venv/bin/activate
-          pip install read-qr --find-links dist --force-reinstall
+          pip install read-qrcode --find-links dist --force-reinstall
           pip install pytest
           pytest
 
@@ -208,7 +208,7 @@ jobs:
     # https://www.maturin.rs/distribution#using-pypis-trusted-publishing
     environment:
       name: pypi
-      url: https://pypi.org/project/read-qr
+      url: https://pypi.org/project/read-qrcode
     permissions:
       # Use to sign the release artifacts
       id-token: write

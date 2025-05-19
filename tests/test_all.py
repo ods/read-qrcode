@@ -1,6 +1,6 @@
 import pytest
 
-from read_qr import read_qr
+from read_qrcode import read_qrcode
 
 
 @pytest.mark.parametrize(
@@ -24,7 +24,7 @@ from read_qr import read_qr
     ],
 )
 def test_read_qr_success(filename: str, expected: str) -> None:
-    result = read_qr(filename)
+    result = read_qrcode(filename)
     assert result == expected
 
 
@@ -42,4 +42,4 @@ def test_read_qr_success(filename: str, expected: str) -> None:
 )
 def test_read_qr_error(filename: str) -> None:
     with pytest.raises(ValueError):
-        read_qr(filename)
+        read_qrcode(filename)

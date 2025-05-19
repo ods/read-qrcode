@@ -10,5 +10,5 @@ crate-type = ["cdylib"]
 
 [dependencies]
 image = "0.25.6"
-pyo3 = { version = "0.24.0", features = ["abi3"] }
+pyo3 = { version = "0.24.0", features = ["extension-module", "abi3-py310"] }
 rqrr = "0.9.3"

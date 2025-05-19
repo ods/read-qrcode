@@ -11,6 +11,12 @@ fn read_qr_function(filename: &str) -> PyResult<String> {
         .to_luma8();
     let mut img = rqrr::PreparedImage::prepare(img);
     let grids = img.detect_grids();
+    if grids.len() != 1 {
+        return Err(PyErr::new::<pyo3::exceptions::PyValueError, _>(format!(
+            "Expected 1 QR code, found {}",
+            grids.len()
+        )));
+    }
     let (_meta, content) = grids[0].decode().map_err(|e| {
         PyErr::new::<pyo3::exceptions::PyValueError, _>(format!("Failed to decode QR code: {}", e))
     })?;
